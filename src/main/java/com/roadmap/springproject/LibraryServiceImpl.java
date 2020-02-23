@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Main {
+public class LibraryServiceImpl implements LibraryService {
 
-    public static String textToNumber(String text) {
+    public String convertTextToIdentifier(String text) {
         long result = 0;
         int textLength = text.length();
 
@@ -18,7 +18,7 @@ public class Main {
         return Long.toString(result);
     }
 
-    public static StringBuilder numberToText(String number) {
+    public StringBuilder convertIdentifierToText(String number) {
         char[] charSet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         int numberLength = number.length();
         if (numberLength % 2 != 0)
@@ -31,7 +31,7 @@ public class Main {
         return result;
     }
 
-    public static long getIndexOfNumber(String number) {
+    public long getIndexFromIdentifier(String number) {
         if (number.length() % 2 != 0)
             number = "0" + number;
 
@@ -49,7 +49,7 @@ public class Main {
         return result;
     }
 
-    public static String getNumberFromIndex(long index) {
+    public String getIdentifierFromIndex(long index) {
         List<Long> temp = new ArrayList<>();
         temp.add(index);
         for (int i = 0; temp.get(i) / 26 >= 1; i++) {
@@ -67,14 +67,14 @@ public class Main {
         return Long.toString(Long.parseLong(result.toString()));
     }
 
-    public static long getShelfNumber(long numberIndex) {
+    public long getShelfNumber(long numberIndex) {
         if (numberIndex % StorageDimensions.CARDS_PER_SHELF == 0)
             return numberIndex / StorageDimensions.CARDS_PER_SHELF;
 
         return numberIndex / StorageDimensions.CARDS_PER_SHELF + 1;
     }
 
-    public static long getBoxNumber(long numberIndex) {
+    public long getBoxNumber(long numberIndex) {
         if (numberIndex > StorageDimensions.CARDS_PER_SHELF)
             numberIndex = numberIndex - (getShelfNumber(numberIndex) - 1) * StorageDimensions.CARDS_PER_SHELF;
 
@@ -84,7 +84,7 @@ public class Main {
         return numberIndex / StorageDimensions.CARDS_PER_BOX + 1;
     }
 
-    public static long getPositionInBox(long numberIndex) {
+    public long getCardNumber(long numberIndex) {
         if (numberIndex > StorageDimensions.CARDS_PER_SHELF)
             numberIndex = numberIndex - (getShelfNumber(numberIndex) - 1) * StorageDimensions.CARDS_PER_SHELF;
 
@@ -94,9 +94,9 @@ public class Main {
         return numberIndex;
     }
 
-    public static String getTextFromPosition(long shelf, long box, long place) {
+    public String getTextFromLibraryPosition(long shelf, long box, long place) {
         long result = (shelf - 1) * StorageDimensions.CARDS_PER_SHELF + (box - 1) * StorageDimensions.CARDS_PER_BOX + place;
-        return numberToText(getNumberFromIndex(result)).toString();
+        return convertIdentifierToText(getIdentifierFromIndex(result)).toString();
     }
 
 }
