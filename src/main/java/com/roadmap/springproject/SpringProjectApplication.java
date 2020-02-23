@@ -12,7 +12,6 @@ public class SpringProjectApplication {
 		SpringApplication.run(SpringProjectApplication.class, args);
 		log.info("Application started");
 
-
 	}
 
 }
