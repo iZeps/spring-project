@@ -1,12 +1,36 @@
 package com.roadmap.springproject;
 
+import com.roadmap.springproject.pojo.Box;
+import com.roadmap.springproject.pojo.Card;
+import com.roadmap.springproject.pojo.Shelf;
 import com.roadmap.springproject.util.StorageDimensions;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+@Service
 public class LibraryServiceImpl implements LibraryService {
+
+//    private final Shelf shelf = new Shelf();
+//    private final Box box = new Box();
+//    private final Card card = new Card();
+
+    @Override
+    public Shelf getShelf(long id) {
+        return new Shelf(id);
+    }
+
+    @Override
+    public Box getBox(long id) {
+        return new Box(id);
+    }
+
+    @Override
+    public Card getCard(long id) {
+        return new Card(id);
+    }
 
     public String convertTextToIdentifier(String text) {
         long result = 0;

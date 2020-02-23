@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <title>Home</title>
-    </head>
+<html lang="en">
+
+    <head id="headId"/>
     <body>
         <div align="center">
             <h1>Welcome to the Library</h1>
@@ -17,7 +15,8 @@
                 only living in someone's imagination for now, can be found on one of the cards, perfectly organized in
                 on of the boxes, sitting on one of the shelves.</p>
             <p>Each shelf hold 100 boxes, each box hold 100 cards, each card has only one word written on it.</p>
-            <a th:href="library" th:text="Library">Click to begin</a>
+            <a id="toLibrary">Click to begin</a>
         </div>
+        <footer id="footerId"/>
     </body>
 </html>

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Library</title>
-</head>
+<head id="headId"/>
 <body>
     <table align="center">
-        <h3 align="center">Shelf 1</h3>
+        <h3 align="center">Shelf</h3>
+        <h2 th:text="${#httpServletRequest.getParameter('shelf')}" align="center">1</h2>
+        <hr/>
         <tr>
             <th><a href="">1</a></th>
             <th><a href="">2</a></th>
@@ -128,5 +127,7 @@
             <th><a href="">100</a></th>
         </tr>
     </table>
+    <hr/>
+    <footer id="footerId"/>
 </body>
 </html>

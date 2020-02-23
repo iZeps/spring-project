@@ -3,10 +3,10 @@ package com.roadmap.springproject.pojo;
 import lombok.Data;
 
 @Data
-public class Card {
+public class Box {
     private long id;
 
-    public Card(long id) {
+    public Box(long id) {
         this.id = id;
     }
 }
